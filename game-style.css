@@ -1,0 +1,53 @@
+:root {
+    --bg: #0a0a0a; --text: #ffffff; --accent: #8a2be2; --circle: #1a1a1a;
+}
+body.light-theme {
+    --bg: #ffffff; --text: #1a1a1a; --accent: #ff007a; --circle: #f0f0f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background: var(--bg); color: var(--text); 
+    font-family: 'Space Grotesk', sans-serif; 
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    transition: 0.3s ease;
+}
+
+.back-btn { position: absolute; top: 20px; left: 20px; color: var(--text); text-decoration: none; font-weight: bold; }
+.controls { position: absolute; top: 20px; right: 20px; display: flex; gap: 10px; }
+
+button { cursor: pointer; border: none; font-family: inherit; }
+.danger-btn { background: #ff4d4d; color: white; padding: 8px 15px; border-radius: 8px; }
+#theme-toggle { background: var(--circle); color: var(--text); width: 40px; border-radius: 8px; }
+
+.container { text-align: center; width: 100%; max-width: 400px; }
+.stat-box h1 { font-size: 5rem; margin-bottom: 0; }
+#rank { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+
+.target-area { margin: 40px 0; perspective: 1000px; }
+.main-circle {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: var(--circle); color: var(--text);
+    font-size: 1.5rem; font-weight: bold;
+    border: 4px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.main-circle:active { transform: scale(0.92); }
+
+/* Шкала */
+.progress-container { width: 100%; height: 8px; background: var(--circle); border-radius: 10px; margin: 10px 0; overflow: hidden; }
+.progress-bar { width: 0%; height: 100%; background: var(--accent); transition: 0.3s; }
+
+/* Анімація подарунка */
+.gift-announcement { margin-top: 30px; opacity: 0.5; transition: 0.5s; }
+.gift-announcement.active { opacity: 1; transform: scale(1.1); color: gold; text-shadow: 0 0 10px gold; }
+.gift-announcement i { font-size: 2rem; }
+
+/* Спеціальні скіни для кнопки */
+.main-circle.bronze { border-color: #cd7f32; box-shadow: 0 0 20px #cd7f32; }
+.main-circle.silver { border-color: #c0c0c0; box-shadow: 0 0 20px #c0c0c0; }
+.main-circle.gold { border-color: #ffd700; box-shadow: 0 0 30px #ffd700; }
+.main-circle.ultra { border-color: #00f2ff; background: #000; box-shadow: 0 0 50px #00f2ff; animation: pulse 1s infinite; }
+
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
